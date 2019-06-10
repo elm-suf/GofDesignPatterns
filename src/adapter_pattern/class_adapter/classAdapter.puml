@@ -1,0 +1,21 @@
+@startuml
+title Class Adapter Pattern
+class Client
+
+interface ITarget{
+    operation() : void
+}
+
+Class Adapter{
+    + operation() : void
+}
+note top of Adapter: operation( ){\n\tthis.specificOperation()\n}
+
+Class Adaptee{
+    + specificOperation() : void
+}
+
+Adapter ...|> ITarget
+Adapter ---|> Adaptee
+Client  ---> ITarget
+@enduml
